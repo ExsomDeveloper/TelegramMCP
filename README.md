@@ -36,12 +36,12 @@ hooks/send.mjs ─┘     http://127.0.0.1:8787/hook/*  │    демон     �
 Через [pm2](https://pm2.keymetrics.io/):
 ```sh
 npm i -g pm2 pm2-windows-startup
-pm2 start dist/index.js --name telegram-mcp --cwd D:/Work/Web/TelegramMCP
+pm2 start dist/index.js --name telegram-mcp --cwd D:/Work/ExsomStudio/Projects/TelegramMCP
 pm2 save && pm2-startup install
 ```
 Или задача планировщика при входе в систему:
 ```powershell
-schtasks /Create /TN TelegramMCP /SC ONLOGON /TR "cmd /c cd /d D:\Work\Web\TelegramMCP && node dist\index.js"
+schtasks /Create /TN TelegramMCP /SC ONLOGON /TR "cmd /c cd /d D:\Work\ExsomStudio\Projects\TelegramMCP && node dist\index.js"
 ```
 
 ## MCP-инструменты
@@ -88,7 +88,7 @@ Claude Code прерывает HTTP-вызов MCP-инструмента пос
     "Stop": [
       {
         "hooks": [
-          { "type": "command", "command": "node D:/Work/Web/TelegramMCP/hooks/send.mjs notify", "timeout": 15, "async": true }
+          { "type": "command", "command": "node D:/Work/ExsomStudio/Projects/TelegramMCP/hooks/send.mjs notify", "timeout": 15, "async": true }
         ]
       }
     ],
@@ -96,7 +96,7 @@ Claude Code прерывает HTTP-вызов MCP-инструмента пос
       {
         "matcher": "Bash|Write|Edit",
         "hooks": [
-          { "type": "command", "command": "node D:/Work/Web/TelegramMCP/hooks/send.mjs approve", "timeout": 330 }
+          { "type": "command", "command": "node D:/Work/ExsomStudio/Projects/TelegramMCP/hooks/send.mjs approve", "timeout": 330 }
         ]
       }
     ]
